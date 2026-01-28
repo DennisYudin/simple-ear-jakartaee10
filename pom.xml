@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>Parent-Pom</name>
+    <artifactId>simple-ear-jakartaee10</artifactId>
+    <groupId>com.packt.cookbook</groupId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <url>http://wildfly.org</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>simple-ear-ejb</module>
+        <module>simple-ear-web</module>
+        <module>simple-ear-ear</module>
+        <module>common-libs</module>
+        <module>simple-ear-assembly-wildfly</module>
+    </modules>
+
+    <properties>
+        <!-- Explicitly declaring the source encoding eliminates the following 
+            message: -->
+        <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
+            resources, i.e. build is platform dependent! -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>21</maven.compiler.release>
+
+        <!-- JBoss dependency versions -->
+        <!-- <wildfly-maven-plugin.version>5.1.3.Final</wildfly-maven-plugin.version>-->
+        <!-- Wildfly server -->
+        <wildfly.version>34.0.0.Final</wildfly.version>
+        <wildfly-maven-plugin.version>5.1.3.Final</wildfly-maven-plugin.version>
+        <wildfly-arquillian.version>5.0.1.Final</wildfly-arquillian.version>
+        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+
+        <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks.-->
+        <version.jboss.bom>8.2.1.Final</version.jboss.bom>
+        <version.wildfly>9.0.0.Alpha1</version.wildfly>
+
+        <!-- other plugin versions -->
+        <version.compiler.plugin>3.1</version.compiler.plugin>
+        <version.ear.plugin>3.3.0</version.ear.plugin>
+        <version.ejb.plugin>2.3</version.ejb.plugin>
+        <version.surefire.plugin>2.16</version.surefire.plugin>
+        <version.war.plugin>3.4.0</version.war.plugin>
+
+        <!-- dependencies versions -->
+        <xstream-version>1.4.21</xstream-version>
+        <junit.version>5.8.2</junit.version>
+
+        <version.bom.ee>34.0.0.Final</version.bom.ee>
+        <mockito-core.version>5.8.0</mockito-core.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- JAKARTA LIBS-->
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>wildfly-ee-with-tools</artifactId>
+                <version>${version.bom.ee}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- OTHER -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>2.23.1</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- LIBS THAT ARE NOT IN WILDFLY            -->
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${xstream-version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- TEST -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Common dependencies for all children -->
+    <dependencies>
+        <!--  Jakarta -->
+        <dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.faces</groupId>
+            <artifactId>jakarta.faces-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ejb</groupId>
+            <artifactId>jakarta.ejb-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  Other -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Libs that does not exist in WILDFLY      -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openrewrite.maven</groupId>
+                <artifactId>rewrite-maven-plugin</artifactId>
+                <version>6.28.0</version>
+                <configuration>
+                    <exportDatatables>true</exportDatatables>
+                    <activeRecipes>
+                        <recipe>org.openrewrite.maven.BestPractices</recipe>
+                    </activeRecipes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.1</version>
+                <configuration>
+                    <fork>true</fork>
+                    <source>21</source>
+                    <target>21</target>
+                    <encoding>UTF-8</encoding>
+                    <meminitial>256m</meminitial>
+                    <maxmem>1024m</maxmem>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

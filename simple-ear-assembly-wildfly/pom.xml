@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.packt.cookbook</groupId>
+        <artifactId>simple-ear-jakartaee10</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.mobimoney.pc.assembly</groupId>
+    <artifactId>simple-ear-assembly-wildfly</artifactId>
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- PostgreSQL JDBC driver -->
+
+        <!-- ADDITIONAL LIBS -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/resources/assembly.xml</descriptor>
+                    </descriptors>
+                    <outputDirectory>target/</outputDirectory>
+                    <workDirectory>target/work</workDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
