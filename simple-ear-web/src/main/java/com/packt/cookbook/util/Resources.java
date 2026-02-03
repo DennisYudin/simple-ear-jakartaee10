@@ -18,8 +18,8 @@ package com.packt.cookbook.util;
 
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 import jakarta.enterprise.inject.Produces;
 import jakarta.enterprise.inject.spi.InjectionPoint;
@@ -27,8 +27,8 @@ import jakarta.enterprise.inject.spi.InjectionPoint;
 
 public class Resources {
 
-	@Produces
-	public Logger createLog(InjectionPoint injectionPoint) {
-		return LogManager.getLogger(injectionPoint.getMember().getDeclaringClass());
-	}
+//	@Produces
+//	public Logger createLog(InjectionPoint injectionPoint) {
+//		return LogManager.getLogger(injectionPoint.getMember().getDeclaringClass());
+//	}
 }

@@ -25,10 +25,12 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
+import com.packt.cookbook.common.logging.Log4jHelper;
+import com.packt.cookbook.common.logging.LogHelper;
 import com.packt.cookbook.model.Member;
 import com.packt.cookbook.service.Registration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 import jakarta.annotation.PostConstruct;
 
@@ -39,7 +41,8 @@ import jakarta.annotation.PostConstruct;
 @Model
 public class MemberController {
 
-    protected final Logger log = LogManager.getLogger(getClass());
+//    protected final Logger log = LogManager.getLogger(getClass());
+    private static final LogHelper log = Log4jHelper.getLogger(MemberController.class);
 
     @Inject
     private FacesContext facesContext;

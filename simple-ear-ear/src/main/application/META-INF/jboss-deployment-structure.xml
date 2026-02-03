@@ -17,7 +17,7 @@
 <jboss-deployment-structure>
     <deployment>
         <dependencies>
-            <!-- xstream           -->
+            <!-- access to xstream           -->
             <module name="com.mobimoney.external" slot="main" export="true" meta-inf="export"/>
 
         </dependencies>

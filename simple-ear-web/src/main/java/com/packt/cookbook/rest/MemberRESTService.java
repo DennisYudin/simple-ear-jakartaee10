@@ -41,12 +41,14 @@ import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import com.packt.cookbook.common.logging.Log4jHelper;
+import com.packt.cookbook.common.logging.LogHelper;
 import com.packt.cookbook.common.xml.Contract;
 import com.packt.cookbook.data.MemberRepository;
 
 import com.packt.cookbook.model.Member;
 import com.packt.cookbook.service.Registration;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
 
 /**
  * JAX-RS Example
@@ -56,13 +58,14 @@ import org.apache.logging.log4j.Logger;
 @Path("members")
 @RequestScoped
 public class MemberRESTService {
-	@Inject
-	private Logger log;
-
-//	private static final LogHelper log = Log4jHelper.getLogger(MemberResourceRESTService.class);
+//	@Inject
+//	private Logger log;
 
 //	@Inject
 //	private LogHelper log;
+
+	private static final LogHelper log = Log4jHelper.getLogger(MemberRESTService.class);
+
 
 	@Inject
 	private Validator validator;
@@ -126,10 +129,8 @@ public class MemberRESTService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response createMember(Member member) {
 
-		Response.ResponseBuilder builder = null;
-
+		Response.ResponseBuilder builder;
 		try {
-			// Validates member using bean validation
 			validateMember(member);
 
 			registration.register(member);
