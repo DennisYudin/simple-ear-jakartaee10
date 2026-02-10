@@ -43,6 +43,8 @@ public class MemberController {
 
 //    protected final Logger log = LogManager.getLogger(getClass());
     private static final LogHelper log = Log4jHelper.getLogger(MemberController.class);
+//    @Inject
+//    private LogHelper log;
 
     @Inject
     private FacesContext facesContext;

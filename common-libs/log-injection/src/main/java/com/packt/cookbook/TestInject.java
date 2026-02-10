@@ -19,14 +19,12 @@ public class TestInject {
 	@PostConstruct
 	public void init() {
 		try {
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(2);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		log.debug("");
-		log.debug("");
-		log.debug("Inject success");
-		log.debug("");
+		log.debug("Successful log injection");
 		log.debug("");
 	}
 }

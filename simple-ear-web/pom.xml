@@ -51,18 +51,19 @@
             <scope>provided</scope>
             <type>ejb</type>
         </dependency>
-        <!--    this dependency was added here for xStream lib test -->
+
+        <!--    this dependency was added here for xStream lib test and test logging-->
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.logging.log4j</groupId>-->
-<!--            <artifactId>log4j-api</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
+        <!-- we need it here to avoid compilation failure during mvn compile step        -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>jakarta.annotation</groupId>

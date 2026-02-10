@@ -49,6 +49,7 @@ import com.packt.cookbook.data.MemberRepository;
 import com.packt.cookbook.model.Member;
 import com.packt.cookbook.service.Registration;
 //import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
 
 /**
  * JAX-RS Example
