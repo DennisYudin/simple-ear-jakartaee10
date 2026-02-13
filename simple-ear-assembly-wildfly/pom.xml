@@ -11,19 +11,7 @@
     <artifactId>simple-ear-assembly-wildfly</artifactId>
     <packaging>pom</packaging>
 
-    <dependencyManagement>
-        <dependencies>
-
-
-
-        </dependencies>
-    </dependencyManagement>
-
-    <dependencies>
-        <!-- PostgreSQL JDBC driver -->
-
-        <!-- ADDITIONAL LIBS -->
-    </dependencies>
+    <name>Assembly module</name>
 
     <build>
         <plugins>

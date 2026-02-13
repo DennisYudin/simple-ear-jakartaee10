@@ -4,8 +4,4 @@
 	<resources>
 		<resource-root path="xstream.jar"/>
 	</resources>
-
-	<dependencies>
-
-	</dependencies>
 </module>

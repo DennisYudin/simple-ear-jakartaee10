@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.packt.cookbook</groupId>
     <artifactId>simple-ear-jakartaee10</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <name>Parent-Pom</name>
 
     <url>http://wildfly.org</url>
@@ -60,8 +61,34 @@
         <mockito-core.version>5.8.0</mockito-core.version>
     </properties>
 
+
     <dependencyManagement>
         <dependencies>
+            <!-- Project libs           -->
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>log-injection</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook</groupId>
+                <artifactId>simple-ear-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook</groupId>
+                <artifactId>simple-ear-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+
             <!-- SOME IMPORTANT WILDFLY 34 LIBS-->
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
@@ -83,6 +110,13 @@
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
                 <version>${xstream-version}</version>
+            </dependency>
+
+            <!-- Lib inside EAR -->
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.18.3</version>
             </dependency>
 
             <!-- TEST -->
@@ -126,35 +160,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.openrewrite.maven</groupId>
-                <artifactId>rewrite-maven-plugin</artifactId>
-                <version>6.28.0</version>
-                <configuration>
-                    <exportDatatables>true</exportDatatables>
-                    <activeRecipes>
-                        <recipe>org.openrewrite.java.logging.log4j.Log4j1ToLog4j2</recipe>
-                    </activeRecipes>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-logging-frameworks</artifactId>
-                        <version>3.22.0</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.openrewrite.maven</groupId>-->
-<!--                <artifactId>rewrite-maven-plugin</artifactId>-->
-<!--                <version>6.28.0</version>-->
-<!--                <configuration>-->
-<!--                    <exportDatatables>true</exportDatatables>-->
-<!--                    <activeRecipes>-->
-<!--                        <recipe>org.openrewrite.maven.BestPractices</recipe>-->
-<!--                    </activeRecipes>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>

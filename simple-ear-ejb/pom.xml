@@ -28,7 +28,8 @@
     <artifactId>simple-ear-ejb</artifactId>
     <packaging>ejb</packaging>
 
-    <name>simple-ear: EJB Module</name>
+    <name>EJB module</name>
+
     <url>http://wildfly.org</url>
     <licenses>
         <license>
@@ -42,7 +43,6 @@
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <!-- we need it here to avoid compilation failure during mvn compile step        -->
@@ -98,5 +98,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

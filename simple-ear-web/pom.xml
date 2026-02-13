@@ -28,10 +28,9 @@
     <artifactId>simple-ear-web</artifactId>
     <packaging>war</packaging>
 
-    <name>simple-ear: WAR Module</name>
+    <name>WAR module</name>
 
     <url>http://wildfly.org</url>
-
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -42,12 +41,10 @@
 
     <dependencies>
         <!-- Dependency on the EJB module so we can use it's services if needed -->
+        <!-- Scope provided cause this module gonna be in EAR already       -->
         <dependency>
             <groupId>com.packt.cookbook</groupId>
             <artifactId>simple-ear-ejb</artifactId>
-            <version>${project.version}</version>
-            <!--Why provided is needed here? -->
-            <!-- without  provided scope we get ambiguous exception EntityManager   -->
             <scope>provided</scope>
             <type>ejb</type>
         </dependency>
@@ -56,8 +53,9 @@
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
+
         <!-- we need it here to avoid compilation failure during mvn compile step        -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

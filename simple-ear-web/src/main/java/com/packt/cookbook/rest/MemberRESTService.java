@@ -41,6 +41,7 @@ import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import com.packt.cookbook.common.html.MessageConverter;
 import com.packt.cookbook.common.logging.Log4jHelper;
 import com.packt.cookbook.common.logging.LogHelper;
 import com.packt.cookbook.common.xml.Contract;
@@ -78,6 +79,33 @@ public class MemberRESTService {
 	@PostConstruct
 	public void init() {
 		log.info("WEB module: logging is working...");
+	}
+
+	@GET
+	@Path("/formParams")
+	public Response getFormParams() {
+		String html = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n" +
+				"<html>\n" +
+				"<head>\n" +
+				"    <META name=\"viewport\" content=\"width=device-width\"/>\n" +
+				"</head>\n" +
+				"\n" +
+				"<body onLoad=\"javascript:post()\">\n" +
+				"\n" +
+				"<form name=\"postform\" method=\"POST\" action=\"https://test.ru:444/sc1/authreq\">\n" +
+				"\n" +
+				"    <input type=\"hidden\" name=\"lastEventGmtTime\" value=\"2020-10-14 09:54:54.958\"/>\n" +
+				"\n" +
+				"    <!-- To support javascript unaware/disabled browsers -->\n" +
+				"    <noscript>\n" +
+				"        <center>Please click Submit to continue.<br>\n" +
+				"            <input type=\"submit\" name=\"submit\" value=\"Submit\"/></center>\n" +
+				"    </noscript>\n" +
+				"</form>\n" +
+				"</body>\n" +
+				"</html>";
+		String result = MessageConverter.getFormParams(html);
+		return Response.ok(result).build();
 	}
 
 	@GET

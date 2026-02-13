@@ -17,19 +17,4 @@
         <module>common</module>
         <module>log-injection</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.packt.cookbook.libraries</groupId>
-                <artifactId>common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.packt.cookbook.libraries</groupId>
-                <artifactId>log-injection</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>

@@ -16,7 +16,7 @@
     limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -28,7 +28,7 @@
     <artifactId>simple-ear-ear</artifactId>
     <packaging>ear</packaging>
 
-    <name>simple-ear: EAR Module</name>
+    <name>EAR module</name>
 
     <url>http://wildfly.org</url>
     <licenses>
@@ -41,32 +41,32 @@
 
 
     <dependencies>
-        <!-- Depend on the ejb module and war so that we can package them -->
+<!--         Depend on the ejb module and war so that we can package them -->
         <dependency>
             <groupId>com.packt.cookbook</groupId>
             <artifactId>simple-ear-web</artifactId>
-            <version>${project.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>com.packt.cookbook</groupId>
             <artifactId>simple-ear-ejb</artifactId>
-            <version>${project.version}</version>
             <type>ejb</type>
         </dependency>
-
         <!--   Common libs     -->
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>log-injection</artifactId>
-            <version>${project.version}</version>
             <type>ejb</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
         </dependency>
     </dependencies>
 
@@ -80,33 +80,38 @@
                 <configuration>
                     <!-- Tell Maven we are using JakartaEE 10 -->
                     <version>10</version>
-                    <!-- Use Java EE ear libraries as needed. Java EE ear libraries
-                        are in easy way to package any libraries needed in the ear, and automatically
-                        have any modules (EJB-JARs and WARs) use them -->
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
+<!--                    <initializeInOrder>true</initializeInOrder>-->
                     <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
                     <modules>
                         <ejbModule>
                             <groupId>com.packt.cookbook</groupId>
                             <artifactId>simple-ear-ejb</artifactId>
-                            <bundleFileName>ejbModule.jar</bundleFileName>
+                            <bundleFileName>ejb-module.jar</bundleFileName>
                         </ejbModule>
                         <ejbModule>
                             <groupId>com.packt.cookbook.libraries</groupId>
                             <artifactId>log-injection</artifactId>
                             <bundleFileName>test-inject.jar</bundleFileName>
                         </ejbModule>
+
                         <jarModule>
                             <groupId>com.packt.cookbook.libraries</groupId>
                             <artifactId>common</artifactId>
                             <bundleFileName>common.jar</bundleFileName>
                         </jarModule>
+
                         <webModule>
                             <groupId>com.packt.cookbook</groupId>
                             <artifactId>simple-ear-web</artifactId>
-                            <bundleFileName>webModule.war</bundleFileName>
+                            <bundleFileName>web-module.war</bundleFileName>
                             <contextRoot>/simple-ear-web</contextRoot>
                         </webModule>
+
+<!--                        <jarModule>-->
+<!--                            <groupId>org.jsoup</groupId>-->
+<!--                            <artifactId>jsoup</artifactId>-->
+<!--                        </jarModule>-->
                     </modules>
                 </configuration>
             </plugin>
