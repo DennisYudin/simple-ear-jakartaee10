@@ -61,10 +61,8 @@
         <mockito-core.version>5.8.0</mockito-core.version>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
-            <!-- Project libs           -->
             <dependency>
                 <groupId>com.packt.cookbook.libraries</groupId>
                 <artifactId>common</artifactId>

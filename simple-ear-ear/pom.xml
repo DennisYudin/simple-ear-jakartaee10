@@ -39,7 +39,6 @@
         </license>
     </licenses>
 
-
     <dependencies>
 <!--         Depend on the ejb module and war so that we can package them -->
         <dependency>
@@ -81,9 +80,11 @@
                     <!-- Tell Maven we are using JakartaEE 10 -->
                     <version>10</version>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-<!--                    <initializeInOrder>true</initializeInOrder>-->
-                    <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
+                    <initializeInOrder>true</initializeInOrder>
+                    <outputFileNameMapping>@{artifactId}@-@{version}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
                     <modules>
+                        <!-- when init in order is true
+                         we need this module be before WAR module or we'll get ServiceNotFoundException                      -->
                         <ejbModule>
                             <groupId>com.packt.cookbook</groupId>
                             <artifactId>simple-ear-ejb</artifactId>
@@ -95,11 +96,11 @@
                             <bundleFileName>test-inject.jar</bundleFileName>
                         </ejbModule>
 
-                        <jarModule>
-                            <groupId>com.packt.cookbook.libraries</groupId>
-                            <artifactId>common</artifactId>
-                            <bundleFileName>common.jar</bundleFileName>
-                        </jarModule>
+<!--                        <jarModule>-->
+<!--                            <groupId>com.packt.cookbook.libraries</groupId>-->
+<!--                            <artifactId>common</artifactId>-->
+<!--                            <bundleFileName>common.jar</bundleFileName>-->
+<!--                        </jarModule>-->
 
                         <webModule>
                             <groupId>com.packt.cookbook</groupId>
@@ -108,6 +109,7 @@
                             <contextRoot>/simple-ear-web</contextRoot>
                         </webModule>
 
+                        <!-- can be deleted                        -->
 <!--                        <jarModule>-->
 <!--                            <groupId>org.jsoup</groupId>-->
 <!--                            <artifactId>jsoup</artifactId>-->

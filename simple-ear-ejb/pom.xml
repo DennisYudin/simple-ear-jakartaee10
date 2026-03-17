@@ -43,6 +43,7 @@
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- we need it here to avoid compilation failure during mvn compile step        -->

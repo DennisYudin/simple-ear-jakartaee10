@@ -18,6 +18,7 @@
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
