@@ -25,7 +25,7 @@
             </includes>
         </fileSet>
     </fileSets>
-    //GIT test
+
     <dependencySets>
         <dependencySet>
             <useTransitiveDependencies>false</useTransitiveDependencies>

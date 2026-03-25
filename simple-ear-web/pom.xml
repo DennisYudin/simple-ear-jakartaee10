@@ -39,12 +39,25 @@
         </license>
     </licenses>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>common-libs</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- Dependency on the EJB module so we can use it's services if needed -->
         <!-- Scope provided cause this module gonna be in EAR already       -->
         <dependency>
             <groupId>com.packt.cookbook</groupId>
             <artifactId>simple-ear-ejb</artifactId>
+            <version>${project.version}</version>
             <scope>provided</scope>
             <type>ejb</type>
         </dependency>
@@ -53,6 +66,11 @@
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>coder</artifactId>
             <scope>provided</scope>
         </dependency>
 

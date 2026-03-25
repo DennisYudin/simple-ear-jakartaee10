@@ -15,6 +15,39 @@
 
     <modules>
         <module>common</module>
-        <module>log-injection</module>
+        <module>log.injection</module>
+        <module>methodproducer</module>
+        <module>coder</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>log.injection</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+                <type>ejb</type>
+            </dependency>
+            <!-- PRODUCER TEST            -->
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>coder</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>methodproducer</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

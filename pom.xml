@@ -63,30 +63,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.packt.cookbook.libraries</groupId>
-                <artifactId>common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.packt.cookbook.libraries</groupId>
-                <artifactId>log-injection</artifactId>
-                <version>${project.version}</version>
-                <type>ejb</type>
-            </dependency>
-            <dependency>
-                <groupId>com.packt.cookbook</groupId>
-                <artifactId>simple-ear-ejb</artifactId>
-                <version>${project.version}</version>
-                <type>ejb</type>
-            </dependency>
-            <dependency>
-                <groupId>com.packt.cookbook</groupId>
-                <artifactId>simple-ear-web</artifactId>
-                <version>${project.version}</version>
-                <type>war</type>
-            </dependency>
-
             <!-- SOME IMPORTANT WILDFLY 34 LIBS-->
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
@@ -116,8 +92,45 @@
                 <artifactId>jsoup</artifactId>
                 <version>1.18.3</version>
             </dependency>
+            <dependency>
+                <groupId>com.mastercard.developer</groupId>
+                <artifactId>client-encryption</artifactId>
+                <version>1.8.5</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mobimoney.pcl</groupId>
+                <artifactId>pcl.configurator</artifactId>
+                <version>9.9-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mobimoney.pcl</groupId>
+                <artifactId>pcl.common</artifactId>
+                <version>9.9-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mobimoney.pcl</groupId>
+                <artifactId>pcl.common.producers</artifactId>
+                <version>9.9-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mobimoney.pcl</groupId>
+                <artifactId>pcl.securityservice.client</artifactId>
+                <version>9.9-SNAPSHOT</version>
+            </dependency>
 
             <!-- TEST -->
+            <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-container-test-api</artifactId>
+                <version>1.9.4.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.junit5</groupId>
+                <artifactId>arquillian-junit5-container</artifactId>
+                <version>1.10.0.Final</version>
+            </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
