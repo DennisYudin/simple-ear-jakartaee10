@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.packt.cookbook</groupId>
@@ -17,7 +17,7 @@
         <module>common</module>
         <module>log.injection</module>
         <module>methodproducer</module>
-        <module>coder</module>
+        <module>test</module>
     </modules>
 
     <dependencyManagement>
@@ -38,7 +38,7 @@
             <!-- PRODUCER TEST            -->
             <dependency>
                 <groupId>com.packt.cookbook.libraries</groupId>
-                <artifactId>coder</artifactId>
+                <artifactId>test</artifactId>
                 <version>${project.version}</version>
                 <scope>provided</scope>
             </dependency>

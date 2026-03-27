@@ -68,9 +68,14 @@
             <artifactId>common</artifactId>
             <scope>provided</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.packt.cookbook.libraries</groupId>-->
+<!--            <artifactId>methodproducer</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>coder</artifactId>
+            <artifactId>test</artifactId>
             <scope>provided</scope>
         </dependency>
 

@@ -6,20 +6,15 @@
         <artifactId>common-libs</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>coder</artifactId>
+    <artifactId>test</artifactId>
     <packaging>jar</packaging>
 
-    <name>coder</name>
+    <name>test</name>
 
     <dependencies>
         <dependency>
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>

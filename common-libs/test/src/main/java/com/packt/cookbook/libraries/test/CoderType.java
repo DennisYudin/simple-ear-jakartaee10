@@ -1,4 +1,4 @@
-package com.packt.cookbook.libraries.coder;
+package com.packt.cookbook.libraries.test;
 
 public enum CoderType {
 	TEST(0),

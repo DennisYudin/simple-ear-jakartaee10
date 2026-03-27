@@ -9,16 +9,13 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-package com.packt.cookbook.libraries.coder;
+package com.packt.cookbook.libraries.test;
 
-import jakarta.enterprise.context.ApplicationScoped;
 
 /**
  * Coder implementation that does nothing but display the values of the
  * arguments.
  */
-@ApplicationScoped
-@Chosen(type = CoderType.TEST)
 public class TestCoderImpl implements Coder {
 
    /**

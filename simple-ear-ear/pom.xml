@@ -75,7 +75,7 @@
         </dependency>
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>coder</artifactId>
+            <artifactId>test</artifactId>
             <scope>compile</scope>
         </dependency>
 
@@ -110,7 +110,7 @@
                     <!-- Tell Maven we are using JakartaEE 10 -->
                     <version>10</version>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-                    <initializeInOrder>true</initializeInOrder>
+<!--                    <initializeInOrder>true</initializeInOrder>-->
                     <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
                     <modules>
                         <!-- when init in order is true

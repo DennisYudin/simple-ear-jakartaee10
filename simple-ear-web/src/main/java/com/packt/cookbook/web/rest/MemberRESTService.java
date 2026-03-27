@@ -41,9 +41,7 @@ import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import com.packt.cookbook.libraries.coder.Chosen;
-import com.packt.cookbook.libraries.coder.Coder;
-import com.packt.cookbook.libraries.coder.CoderType;
+
 import com.packt.cookbook.libraries.common.html.MessageConverter;
 import com.packt.cookbook.libraries.common.logging.Log4jHelper;
 import com.packt.cookbook.libraries.common.logging.LogHelper;
@@ -53,6 +51,10 @@ import com.packt.cookbook.ejb.data.MemberRepository;
 
 import com.packt.cookbook.ejb.model.Member;
 import com.packt.cookbook.ejb.service.Registration;
+import com.packt.cookbook.libraries.test.Chosen;
+import com.packt.cookbook.libraries.test.Coder;
+import com.packt.cookbook.libraries.test.CoderType;
+
 //import org.apache.logging.log4j.Logger;
 //import org.apache.logging.log4j.Logger;
 
@@ -66,12 +68,10 @@ import com.packt.cookbook.ejb.service.Registration;
 public class MemberRESTService {
 //	@Inject
 //	private Logger log;
-
 //	@Inject
 //	private LogHelper log;
 
 	private static final LogHelper log = Log4jHelper.getLogger(MemberRESTService.class);
-
 
 	@Inject
 	private Validator validator;
@@ -79,6 +79,7 @@ public class MemberRESTService {
 	private MemberRepository repository;
 	@Inject
 	private Registration registration;
+
 	@Inject
 	@Chosen(type = CoderType.SHIFT)
 	private Coder coder;
@@ -89,10 +90,10 @@ public class MemberRESTService {
 	}
 
 	@GET
-	@Path("/ping/{str}")
-	public Response encoder(@PathParam("str") String str) {
+	@Path("/ping/{input}")
+	public Response encoder(@PathParam("input") String input) {
 
-		String result = coder.codeString(str, 2);
+		String result = coder.codeString(input, 2);
 
 		return Response.ok(result).build();
 	}

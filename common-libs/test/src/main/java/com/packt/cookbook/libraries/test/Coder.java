@@ -9,7 +9,7 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-package com.packt.cookbook.libraries.coder;
+package com.packt.cookbook.libraries.test;
 
 public interface Coder {
 

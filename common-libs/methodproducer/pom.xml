@@ -10,7 +10,6 @@
     <packaging>jar</packaging>
 
     <name>methodproducer</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,9 +18,9 @@
     <dependencies>
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>coder</artifactId>
+            <artifactId>test</artifactId>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>

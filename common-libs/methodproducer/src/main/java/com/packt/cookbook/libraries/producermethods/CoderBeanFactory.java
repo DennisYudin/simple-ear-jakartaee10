@@ -11,10 +11,14 @@
  */
 package com.packt.cookbook.libraries.producermethods;
 
-import com.packt.cookbook.libraries.coder.Coder;
-import com.packt.cookbook.libraries.coder.CoderImpl;
-import com.packt.cookbook.libraries.coder.CoderType;
-import com.packt.cookbook.libraries.coder.TestCoderImpl;
+
+
+
+
+import com.packt.cookbook.libraries.test.Coder;
+import com.packt.cookbook.libraries.test.CoderImpl;
+import com.packt.cookbook.libraries.test.CoderType;
+import com.packt.cookbook.libraries.test.TestCoderImpl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -29,7 +33,6 @@ public class CoderBeanFactory {
 		return switch (type) {
 			case TEST -> new TestCoderImpl();
 			case SHIFT -> new CoderImpl();
-			default -> null;
 		};
     }
 }
