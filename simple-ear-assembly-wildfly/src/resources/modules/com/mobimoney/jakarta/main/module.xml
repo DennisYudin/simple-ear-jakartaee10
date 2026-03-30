@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="urn:jboss:module:1.3" name="com.mobimoney.external" slot="main">
+<module xmlns="urn:jboss:module:1.3" name="com.mobimoney.jakarta" slot="main">
 
 	<resources>
 		<resource-root path="xstream.jar"/>
+		<resource-root path="test.jar"/>
 	</resources>
 </module>

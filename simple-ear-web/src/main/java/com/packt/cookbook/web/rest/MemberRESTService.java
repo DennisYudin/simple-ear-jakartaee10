@@ -16,6 +16,8 @@
  */
 package com.packt.cookbook.web.rest;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -25,6 +27,7 @@ import java.util.Set;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.inject.spi.Bean;
 import jakarta.inject.Inject;
 import jakarta.persistence.NoResultException;
 import jakarta.validation.ConstraintViolation;
@@ -51,9 +54,11 @@ import com.packt.cookbook.ejb.data.MemberRepository;
 
 import com.packt.cookbook.ejb.model.Member;
 import com.packt.cookbook.ejb.service.Registration;
-import com.packt.cookbook.libraries.test.Chosen;
-import com.packt.cookbook.libraries.test.Coder;
-import com.packt.cookbook.libraries.test.CoderType;
+import com.packt.cookbook.libraries.producermethods.CoderBeanFactory;
+import com.packt.cookbook.libraries.producermethods.entities.Chosen;
+import com.packt.cookbook.libraries.producermethods.entities.Coder;
+import com.packt.cookbook.libraries.producermethods.entities.CoderType;
+
 
 //import org.apache.logging.log4j.Logger;
 //import org.apache.logging.log4j.Logger;
@@ -80,9 +85,12 @@ public class MemberRESTService {
 	@Inject
 	private Registration registration;
 
+//	@Inject
+//	@Chosen(type = CoderType.SHIFT)
+//	private Coder coder;
+
 	@Inject
-	@Chosen(type = CoderType.SHIFT)
-	private Coder coder;
+	CoderBeanFactory factory;
 
 	@PostConstruct
 	public void init() {
@@ -93,6 +101,9 @@ public class MemberRESTService {
 	@Path("/ping/{input}")
 	public Response encoder(@PathParam("input") String input) {
 
+//		String result = coder.codeString(input, 2);
+
+		Coder coder = factory.getCoder(CoderType.SHIFT);
 		String result = coder.codeString(input, 2);
 
 		return Response.ok(result).build();

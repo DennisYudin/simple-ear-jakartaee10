@@ -30,12 +30,13 @@
         <dependencySet>
             <useTransitiveDependencies>false</useTransitiveDependencies>
             <useProjectArtifact>false</useProjectArtifact>
-            <outputDirectory>/WILDFLY_HOME/modules/com/mobimoney/external/main</outputDirectory>
+            <outputDirectory>/WILDFLY_HOME/modules/com/mobimoney/jakarta/main</outputDirectory>
             <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
             <!-- needed here if dependencies have provided <scope>           -->
             <scope>provided</scope>
             <includes>
                 <include>com.thoughtworks.xstream:xstream:jar:*</include>
+                <include>com.packt.cookbook.libraries:test:jar:*</include>
             </includes>
         </dependencySet>
     </dependencySets>

@@ -19,6 +19,7 @@
         <dependencies>
             <!-- access to xstream           -->
             <module name="com.mobimoney.external" slot="main" export="true" meta-inf="export"/>
+<!--            <module name="com.mobimoney.jakarta" slot="main" export="true" meta-inf="export"/>-->
 
         </dependencies>
     </deployment>

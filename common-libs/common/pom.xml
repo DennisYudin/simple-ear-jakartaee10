@@ -28,7 +28,7 @@
     <artifactId>common</artifactId>
     <packaging>jar</packaging>
 
-    <name>JAR module</name>
+    <name>JAR module: common</name>
 
     <url>http://wildfly.org</url>
     <licenses>

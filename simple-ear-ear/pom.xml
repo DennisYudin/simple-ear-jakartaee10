@@ -73,11 +73,11 @@
             <artifactId>methodproducer</artifactId>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>test</artifactId>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.packt.cookbook.libraries</groupId>-->
+<!--            <artifactId>test</artifactId>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
 
         <!-- Other        -->
         <dependency>

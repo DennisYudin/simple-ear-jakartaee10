@@ -68,16 +68,16 @@
             <artifactId>common</artifactId>
             <scope>provided</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.packt.cookbook.libraries</groupId>-->
-<!--            <artifactId>methodproducer</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>test</artifactId>
+            <artifactId>methodproducer</artifactId>
             <scope>provided</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.packt.cookbook.libraries</groupId>-->
+<!--            <artifactId>test</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
 
         <!-- we need it here to avoid compilation failure during mvn compile step        -->
         <dependency>

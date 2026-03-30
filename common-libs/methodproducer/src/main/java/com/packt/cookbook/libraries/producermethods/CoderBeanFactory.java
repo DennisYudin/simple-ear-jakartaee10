@@ -12,13 +12,10 @@
 package com.packt.cookbook.libraries.producermethods;
 
 
-
-
-
-import com.packt.cookbook.libraries.test.Coder;
-import com.packt.cookbook.libraries.test.CoderImpl;
-import com.packt.cookbook.libraries.test.CoderType;
-import com.packt.cookbook.libraries.test.TestCoderImpl;
+import com.packt.cookbook.libraries.producermethods.entities.Coder;
+import com.packt.cookbook.libraries.producermethods.entities.CoderType;
+import com.packt.cookbook.libraries.producermethods.entities.TestCoderImpl;
+import com.packt.cookbook.libraries.producermethods.entities.CoderImpl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 

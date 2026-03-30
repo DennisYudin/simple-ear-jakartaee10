@@ -17,7 +17,7 @@
         <module>common</module>
         <module>log.injection</module>
         <module>methodproducer</module>
-        <module>test</module>
+<!--        <module>test</module>-->
     </modules>
 
     <dependencyManagement>
