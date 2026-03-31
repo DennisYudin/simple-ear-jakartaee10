@@ -35,29 +35,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- JBoss dependency versions -->
-        <!-- <wildfly-maven-plugin.version>5.1.3.Final</wildfly-maven-plugin.version>-->
-        <!-- Wildfly server -->
-        <wildfly.version>34.0.0.Final</wildfly.version>
-        <wildfly-maven-plugin.version>5.1.3.Final</wildfly-maven-plugin.version>
-        <wildfly-arquillian.version>5.0.1.Final</wildfly-arquillian.version>
-        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
-
-        <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks.-->
-        <version.jboss.bom>8.2.1.Final</version.jboss.bom>
-        <version.wildfly>9.0.0.Alpha1</version.wildfly>
+        <wildfly.bom.ee.version>34.0.0.Final</wildfly.bom.ee.version>
 
         <!-- other plugin versions -->
-        <version.compiler.plugin>3.1</version.compiler.plugin>
-        <version.ear.plugin>3.3.0</version.ear.plugin>
-        <version.ejb.plugin>2.3</version.ejb.plugin>
-        <version.surefire.plugin>2.16</version.surefire.plugin>
-        <version.war.plugin>3.4.0</version.war.plugin>
+        <ear.plugin.version>3.3.0</ear.plugin.version>
+        <ejb.plugin.version>3.2.1</ejb.plugin.version>
+        <war.plugin.version>3.4.0</war.plugin.version>
+        <compiler.plugin.version>3.1</compiler.plugin.version>
+        <surefire.plugin.version>3.2.5</surefire.plugin.version>
 
         <!-- dependencies versions -->
         <xstream-version>1.4.21</xstream-version>
         <junit.version>5.8.2</junit.version>
 
-        <version.bom.ee>34.0.0.Final</version.bom.ee>
         <mockito-core.version>5.8.0</mockito-core.version>
     </properties>
 
@@ -67,7 +57,7 @@
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
                 <artifactId>wildfly-ee-with-tools</artifactId>
-                <version>${version.bom.ee}</version>
+                <version>${wildfly.bom.ee.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -91,12 +81,6 @@
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>1.18.3</version>
-            </dependency>
-            <dependency>
-                <groupId>com.mastercard.developer</groupId>
-                <artifactId>client-encryption</artifactId>
-                <version>1.8.5</version>
-                <scope>provided</scope>
             </dependency>
 
             <dependency>

@@ -12,8 +12,6 @@
 
     <name>EJB-JAR module: logging injection test</name>
 
-    <url>http://maven.apache.org</url>
-
     <dependencies>
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
@@ -43,7 +41,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ejb-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>${ejb.plugin.version}</version>
             </plugin>
         </plugins>
     </build>

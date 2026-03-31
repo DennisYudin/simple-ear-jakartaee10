@@ -30,15 +30,6 @@
 
     <name>EJB module</name>
 
-    <url>http://wildfly.org</url>
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <distribution>repo</distribution>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-        </license>
-    </licenses>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -51,25 +42,7 @@
         </dependencies>
     </dependencyManagement>
 
-
-
     <dependencies>
-        <dependency>
-            <groupId>com.mobimoney.pcl</groupId>
-            <artifactId>pcl.configurator</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.mobimoney.pcl</groupId>
-            <artifactId>pcl.common</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.mobimoney.pcl</groupId>
-            <artifactId>pcl.securityservice.client</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
@@ -136,7 +109,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ejb-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>${ejb.plugin.version}</version>
             </plugin>
         </plugins>
     </build>

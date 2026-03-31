@@ -6,6 +6,7 @@
         <artifactId>common-libs</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <artifactId>methodproducer</artifactId>
     <packaging>jar</packaging>
 

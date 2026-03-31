@@ -29,74 +29,55 @@
 
     <name>EAR module</name>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.packt.cookbook.libraries</groupId>
-                <artifactId>common-libs</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-<!--         Depend on the ejb module and war so that we can package them -->
+        <!-- JARs       -->
         <dependency>
-            <groupId>com.packt.cookbook</groupId>
-            <artifactId>simple-ear-web</artifactId>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>common</artifactId>
             <version>${project.version}</version>
-            <type>war</type>
         </dependency>
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>methodproducer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.mobimoney.pcl</groupId>-->
+        <!--            <artifactId>pcl.common.producers</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.mobimoney.pcl</groupId>-->
+        <!--            <artifactId>pcl.configurator</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.mobimoney.pcl</groupId>-->
+        <!--            <artifactId>pcl.common</artifactId>-->
+        <!--        </dependency>-->
+
+        <!-- EJBs       -->
         <dependency>
             <groupId>com.packt.cookbook</groupId>
             <artifactId>simple-ear-ejb</artifactId>
             <version>${project.version}</version>
             <type>ejb</type>
         </dependency>
-        <!--   Common libs     -->
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>common</artifactId>
-            <scope>compile</scope>
-            <type>jar</type>
-        </dependency>
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>log.injection</artifactId>
-            <scope>compile</scope>
+            <version>${project.version}</version>
             <type>ejb</type>
         </dependency>
+        <!-- WARs       -->
         <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>methodproducer</artifactId>
-            <scope>compile</scope>
+            <groupId>com.packt.cookbook</groupId>
+            <artifactId>simple-ear-web</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.packt.cookbook.libraries</groupId>-->
-<!--            <artifactId>test</artifactId>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
-
-        <!-- Other        -->
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-        </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>com.mobimoney.pcl</groupId>-->
-<!--            <artifactId>pcl.common.producers</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.mobimoney.pcl</groupId>-->
-<!--            <artifactId>pcl.configurator</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.mobimoney.pcl</groupId>-->
-<!--            <artifactId>pcl.common</artifactId>-->
-<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -105,16 +86,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
-                <version>${version.ear.plugin}</version>
+                <version>${ear.plugin.version}</version>
                 <configuration>
                     <!-- Tell Maven we are using JakartaEE 10 -->
                     <version>10</version>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-<!--                    <initializeInOrder>true</initializeInOrder>-->
+                    <initializeInOrder>true</initializeInOrder>
                     <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
                     <modules>
-                        <!-- when init in order is true
-                         we need this module be before WAR module or we'll get ServiceNotFoundException                      -->
+                        <!--
+                        When init in order is true
+                        we need this module be before WAR module or we'll get ServiceNotFoundException                      -->
                         <ejbModule>
                             <groupId>com.packt.cookbook</groupId>
                             <artifactId>simple-ear-ejb</artifactId>
@@ -125,25 +107,12 @@
                             <artifactId>log.injection</artifactId>
                             <bundleFileName>test-inject.jar</bundleFileName>
                         </ejbModule>
-
-<!--                        <jarModule>-->
-<!--                            <groupId>com.packt.cookbook.libraries</groupId>-->
-<!--                            <artifactId>common</artifactId>-->
-<!--                            <bundleFileName>common.jar</bundleFileName>-->
-<!--                        </jarModule>-->
-
                         <webModule>
                             <groupId>com.packt.cookbook</groupId>
                             <artifactId>simple-ear-web</artifactId>
                             <bundleFileName>web-module.war</bundleFileName>
                             <contextRoot>/simple-ear-web</contextRoot>
                         </webModule>
-
-                        <!-- can be deleted                        -->
-<!--                        <jarModule>-->
-<!--                            <groupId>org.jsoup</groupId>-->
-<!--                            <artifactId>jsoup</artifactId>-->
-<!--                        </jarModule>-->
                     </modules>
                 </configuration>
             </plugin>

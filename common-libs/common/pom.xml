@@ -30,15 +30,6 @@
 
     <name>JAR module: common</name>
 
-    <url>http://wildfly.org</url>
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <distribution>repo</distribution>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-        </license>
-    </licenses>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

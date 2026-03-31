@@ -17,13 +17,9 @@
 package com.packt.cookbook.ejb.service;
 
 
-import com.mobimoney.pcl.common.ApplicationType;
-import com.mobimoney.pcl.configuration.Configurator;
-import com.mobimoney.pcl.configuration.ConfiguratorType;
-
+import com.packt.cookbook.ejb.model.Member;
 import com.packt.cookbook.libraries.common.logging.Log4jHelper;
 import com.packt.cookbook.libraries.common.logging.LogHelper;
-import com.packt.cookbook.ejb.model.Member;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Stateless;
@@ -41,10 +37,6 @@ public class MemberRegistration implements Registration {
 	private EntityManager entityManager;
 	@Inject
 	private Event<Member> memberEventSrc;
-
-//	@Inject
-//	@ConfiguratorType(type = ApplicationType.POS)
-//	private Configurator configurator;
 
 	@PostConstruct
 	public void init() {
