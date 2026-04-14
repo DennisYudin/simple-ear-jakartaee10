@@ -24,6 +24,8 @@ import java.util.logging.Logger;
 
 import jakarta.inject.Inject;
 
+import com.packt.cookbook.ejb.data.MemberListProducer;
+import com.packt.cookbook.ejb.data.MemberRepository;
 import com.packt.cookbook.ejb.util.Resource;
 import org.jboss.arquillian.container.test.api.Deployment;
 import com.packt.cookbook.ejb.model.Member;
@@ -32,6 +34,7 @@ import org.jboss.arquillian.junit5.ArquillianExtension;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -43,12 +46,14 @@ public class MemberRegistrationTest {
 
     @Deployment
     public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(WebArchive.class, "test.war")
-                .addClasses(Member.class, MemberRegistration.class, Resource.class)
-                .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+        return ShrinkWrap.create(JavaArchive.class, "simple-ear-ejb-1.0-SNAPSHOT.jar")
+                .addClasses(
+                        Member.class,
+                        MemberRegistration.class, Resource.class, MemberRepository.class, MemberListProducer.class)
+                .addAsResource("META-INF/beans.xml", "META-INF/persistence.xml");
                 // Deploy our test datasource
-                .addAsWebInfResource("test-ds.xml", "test-ds.xml");
+//                .
+//                .addAsWebInfResource("test-ds.xml", "test-ds.xml");
     }
 
     @Inject

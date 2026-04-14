@@ -31,7 +31,9 @@ import jakarta.persistence.EntityManager;
 @Stateless
 public class MemberRegistration implements Registration {
 
-	private static final LogHelper log = Log4jHelper.getLogger(MemberRegistration.class);
+//	private static final LogHelper log = Log4jHelper.getLogger(MemberRegistration.class);
+	@Inject
+	private LogHelper log;
 
 	@Inject
 	private EntityManager entityManager;

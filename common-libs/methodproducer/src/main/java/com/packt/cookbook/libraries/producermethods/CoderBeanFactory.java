@@ -14,8 +14,8 @@ package com.packt.cookbook.libraries.producermethods;
 
 import com.packt.cookbook.libraries.producermethods.entities.Coder;
 import com.packt.cookbook.libraries.producermethods.entities.CoderType;
-import com.packt.cookbook.libraries.producermethods.entities.TestCoderImpl;
 import com.packt.cookbook.libraries.producermethods.entities.CoderImpl;
+import com.packt.cookbook.libraries.producermethods.entities.TestCoderImpl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -32,4 +32,10 @@ public class CoderBeanFactory {
 			case SHIFT -> new CoderImpl();
 		};
     }
+
+//	public Coder getCoder(CoderType type) {
+//		return switch (type) {
+//			case SHIFT -> new CoderImpl();
+//		};
+//    }
 }

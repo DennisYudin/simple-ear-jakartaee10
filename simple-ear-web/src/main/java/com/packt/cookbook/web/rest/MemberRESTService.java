@@ -54,9 +54,10 @@ import com.packt.cookbook.ejb.data.MemberRepository;
 
 import com.packt.cookbook.ejb.model.Member;
 import com.packt.cookbook.ejb.service.Registration;
-import com.packt.cookbook.libraries.producermethods.CoderBeanFactory;
+//import com.packt.cookbook.libraries.producermethods.CoderBeanFactory;
 import com.packt.cookbook.libraries.producermethods.entities.Chosen;
 import com.packt.cookbook.libraries.producermethods.entities.Coder;
+import com.packt.cookbook.libraries.producermethods.entities.CoderImpl;
 import com.packt.cookbook.libraries.producermethods.entities.CoderType;
 
 
@@ -73,11 +74,8 @@ import com.packt.cookbook.libraries.producermethods.entities.CoderType;
 public class MemberRESTService {
 //	@Inject
 //	private Logger log;
-//	@Inject
-//	private LogHelper log;
 
-	private static final LogHelper log = Log4jHelper.getLogger(MemberRESTService.class);
-
+//	private static final LogHelper log = Log4jHelper.getLogger(MemberRESTService.class);
 	@Inject
 	private Validator validator;
 	@Inject
@@ -85,12 +83,14 @@ public class MemberRESTService {
 	@Inject
 	private Registration registration;
 
-//	@Inject
-//	@Chosen(type = CoderType.SHIFT)
-//	private Coder coder;
-
 	@Inject
-	CoderBeanFactory factory;
+	private LogHelper log;
+	@Inject
+	@Chosen(type = CoderType.TEST) //todo worj with TEST and doesn't with SHIFT
+	private Coder coder;
+
+//	@Inject
+//	CoderBeanFactory factory;
 
 	@PostConstruct
 	public void init() {
@@ -101,12 +101,13 @@ public class MemberRESTService {
 	@Path("/ping/{input}")
 	public Response encoder(@PathParam("input") String input) {
 
-//		String result = coder.codeString(input, 2);
-
-		Coder coder = factory.getCoder(CoderType.SHIFT);
 		String result = coder.codeString(input, 2);
 
+//		Coder coder = factory.getCoder(CoderType.SHIFT);
+//		String result = coder.codeString(input, 2);
+
 		return Response.ok(result).build();
+//		return Response.ok().build();
 	}
 
 	@GET

@@ -18,12 +18,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.packt.cookbook</groupId>
         <artifactId>simple-ear-jakartaee10</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <artifactId>simple-ear-ear</artifactId>
     <packaging>ear</packaging>
 
@@ -40,10 +40,6 @@
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>methodproducer</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>com.mobimoney.pcl</groupId>-->
