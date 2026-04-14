@@ -18,19 +18,9 @@ import jakarta.inject.Inject;
 @ApplicationScoped
 public class CoderBeanProducer {
 
-//	@Produces
-//	@Chosen
-//	public Coder create(CoderBeanFactory factory, InjectionPoint injectionPoint) {
-//		Annotated annotated = injectionPoint.getAnnotated();
-//		Chosen chosenType = annotated.getAnnotation(Chosen.class);
-//		CoderType type = chosenType.type();
-//		return factory.getCoder(type);
-//	}
-
 	@Produces
 	@Chosen
 	public Coder create(CoderBeanFactory factory, InjectionPoint injectionPoint) {
-//		return new CoderImpl();
 		Annotated annotated = injectionPoint.getAnnotated();
 		Chosen chosenType = annotated.getAnnotation(Chosen.class);
 		CoderType type = chosenType.type();

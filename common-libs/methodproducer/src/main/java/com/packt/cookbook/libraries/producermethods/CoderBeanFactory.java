@@ -32,10 +32,4 @@ public class CoderBeanFactory {
 			case SHIFT -> new CoderImpl();
 		};
     }
-
-//	public Coder getCoder(CoderType type) {
-//		return switch (type) {
-//			case SHIFT -> new CoderImpl();
-//		};
-//    }
 }
