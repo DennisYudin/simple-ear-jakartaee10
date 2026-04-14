@@ -86,11 +86,8 @@ public class MemberRESTService {
 	@Inject
 	private LogHelper log;
 	@Inject
-	@Chosen(type = CoderType.TEST) //todo worj with TEST and doesn't with SHIFT
+	@Chosen(type = CoderType.SHIFT)
 	private Coder coder;
-
-//	@Inject
-//	CoderBeanFactory factory;
 
 	@PostConstruct
 	public void init() {
@@ -103,11 +100,7 @@ public class MemberRESTService {
 
 		String result = coder.codeString(input, 2);
 
-//		Coder coder = factory.getCoder(CoderType.SHIFT);
-//		String result = coder.codeString(input, 2);
-
 		return Response.ok(result).build();
-//		return Response.ok().build();
 	}
 
 	@GET
