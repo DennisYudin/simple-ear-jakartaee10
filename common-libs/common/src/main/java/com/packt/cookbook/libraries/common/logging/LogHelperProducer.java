@@ -1,12 +1,12 @@
 package com.packt.cookbook.libraries.common.logging;
 
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 import jakarta.enterprise.inject.spi.InjectionPoint;
 
-/**
- * Log4jHelper producer
- */
+
+@ApplicationScoped
 public class LogHelperProducer {
 
 	@Produces
