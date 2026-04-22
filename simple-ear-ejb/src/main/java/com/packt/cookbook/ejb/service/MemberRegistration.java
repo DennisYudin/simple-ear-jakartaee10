@@ -27,7 +27,6 @@ import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 
-// The @Stateless annotation eliminates the need for manual transaction demarcation
 @Stateless
 public class MemberRegistration implements Registration {
 

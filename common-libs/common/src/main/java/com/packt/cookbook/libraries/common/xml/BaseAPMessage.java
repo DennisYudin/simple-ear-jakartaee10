@@ -212,7 +212,7 @@ public class BaseAPMessage {
 		};
 		xs.processAnnotations(new Class<?>[]{Contract.class, Resource.class, Error.class});
 		xs.registerConverter(new ParamConverter());
-		xs.allowTypesByWildcard(new String[]{"com.packt.cookbook.common.xml.**",
+		xs.allowTypesByWildcard(new String[]{"com.packt.cookbook.libraries.common.xml.**",
 		});
 		return xs;
 	}

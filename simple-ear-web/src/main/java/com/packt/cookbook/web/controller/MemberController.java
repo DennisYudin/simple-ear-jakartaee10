@@ -77,12 +77,12 @@ public class MemberController {
     public void initNewMember() {
         log.info("-------------------");
         log.info("START NEW REQUEST");
-        log.trace("TRACE: Logger log = Logger.getLogger(getClass()) from WEB");
-        log.debug("DEBUG: Logger log = Logger.getLogger(getClass()) from WEB");
-        log.info("INFO: Logger log = Logger.getLogger(getClass()) from WEB");
-        log.warn("WARN: Logger log = Logger.getLogger(getClass()) from WEB");
-        log.error("ERROR: Logger log = Logger.getLogger(getClass()) from WEB");
-        log.fatal("FATAL: Logger log = Logger.getLogger(getClass()) from WEB");
+        log.trace("TRACE log");
+        log.debug("DEBUG log");
+        log.info("INFO log");
+        log.warn("WARN log");
+        log.error("ERROR log");
+        log.fatal("FATAL log");
 
         newMember = new Member();
     }

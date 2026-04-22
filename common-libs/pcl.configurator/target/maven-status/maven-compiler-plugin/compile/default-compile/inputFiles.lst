@@ -1,0 +1,9 @@
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfigurationFileWrapper.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfigurationHelper.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/Configurator.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfiguratorException.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfiguratorFactory.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfiguratorImpl.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfiguratorProducer.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/ConfiguratorType.java
+/home/yudin/workspace/MigrationToJakarta/simple-ear-jakartaee10/common-libs/pcl.configurator/src/main/java/com/mobimoney/pcl/configuration/FakeConfigurator.java

@@ -17,7 +17,10 @@
         <module>common</module>
         <module>log.injection</module>
         <module>methodproducer</module>
-<!--        <module>test</module>-->
+        <module>pcl.configurator</module>
+        <module>pcl.securityservice.client</module>
+        <module>pcl.securityservice.protocol</module>
+        <module>pcl.persistence.jdbc</module>
     </modules>
 
     <dependencyManagement>
@@ -45,6 +48,32 @@
             <dependency>
                 <groupId>com.packt.cookbook.libraries</groupId>
                 <artifactId>methodproducer</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- DATASOURCE PRODUCER            -->
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>pcl.configurator</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>pcl.securityservice.client</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>pcl.securityservice.protocol</artifactId>
+                <version>${project.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.packt.cookbook.libraries</groupId>
+                <artifactId>pcl.persistence.jdbc</artifactId>
                 <version>${project.version}</version>
                 <scope>provided</scope>
             </dependency>

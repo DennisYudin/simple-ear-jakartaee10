@@ -1,0 +1,3 @@
+com/mobimoney/securityservice/protocol/ProtocolConstants.class
+com/mobimoney/securityservice/protocol/exceptions/SecurityServiceException.class
+com/mobimoney/securityservice/protocol/Transport.class

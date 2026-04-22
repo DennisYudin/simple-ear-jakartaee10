@@ -41,18 +41,26 @@
             <artifactId>methodproducer</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>com.mobimoney.pcl</groupId>-->
-        <!--            <artifactId>pcl.common.producers</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.mobimoney.pcl</groupId>-->
-        <!--            <artifactId>pcl.configurator</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.mobimoney.pcl</groupId>-->
-        <!--            <artifactId>pcl.common</artifactId>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>pcl.configurator</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>pcl.securityservice.client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>pcl.securityservice.protocol</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>pcl.persistence.jdbc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- EJBs       -->
         <dependency>
@@ -110,6 +118,13 @@
                             <contextRoot>/simple-ear-web</contextRoot>
                         </webModule>
                     </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
                 </configuration>
             </plugin>
         </plugins>

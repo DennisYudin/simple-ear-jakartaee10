@@ -16,6 +16,9 @@
  */
 package com.packt.cookbook.web.rest;
 
+import com.mobimoney.pcl.configuration.Configurator;
+import com.mobimoney.pcl.configuration.ConfiguratorType;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -45,6 +48,9 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 
+import com.packt.cookbook.libraries.common.ApplicationType;
+import com.packt.cookbook.libraries.common.DatabaseHelper;
+import com.packt.cookbook.libraries.common.configuration.DbMasterSlaveConfiguration;
 import com.packt.cookbook.libraries.common.html.MessageConverter;
 import com.packt.cookbook.libraries.common.logging.Log4jHelper;
 import com.packt.cookbook.libraries.common.logging.LogHelper;
@@ -59,6 +65,9 @@ import com.packt.cookbook.libraries.producermethods.entities.Chosen;
 import com.packt.cookbook.libraries.producermethods.entities.Coder;
 import com.packt.cookbook.libraries.producermethods.entities.CoderImpl;
 import com.packt.cookbook.libraries.producermethods.entities.CoderType;
+
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 
 //import org.apache.logging.log4j.Logger;
@@ -88,11 +97,30 @@ public class MemberRESTService {
 	@Inject
 	@Chosen(type = CoderType.SHIFT)
 	private Coder coder;
+	@Inject
+	@ConfiguratorType(type = ApplicationType.COMMON)
+	private Configurator configurator;
 
 	@PostConstruct
 	public void init() {
 		log.info("WEB module: logging is working...");
 	}
+
+//	@GET
+//	@Path("/getDatasource")
+//	public Response getDatasource() throws NamingException {
+//		DbMasterSlaveConfiguration cfg = configurator.getConfiguration(DbMasterSlaveConfiguration.class,
+//				new DbMasterSlaveConfiguration());
+//		DataSource mainDataSource;
+//		try {
+//			log.debug("Getting data source %s", cfg.getMainDbJndiName());
+//			mainDataSource = DatabaseHelper.createDataSource(cfg.getMainDbJndiName());
+//		} catch (Exception e) {
+//			log.error("Couldn't get main datasource for: " + cfg.getMainDbJndiName());
+//			throw new RuntimeException("Couldn't get main datasource for: " + cfg.getMainDbJndiName());
+//		}
+//		return Response.ok(mainDataSource).build();
+//	}
 
 	@GET
 	@Path("/ping/{input}")

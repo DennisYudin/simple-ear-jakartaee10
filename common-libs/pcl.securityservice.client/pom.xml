@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.packt.cookbook.libraries</groupId>
+		<artifactId>common-libs</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>pcl.securityservice.client</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.packt.cookbook.libraries</groupId>
+			<artifactId>common</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.packt.cookbook.libraries</groupId>
+			<artifactId>pcl.securityservice.protocol</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- we need it here to avoid compilation failure during mvn compile step        -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

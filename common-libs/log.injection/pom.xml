@@ -18,6 +18,11 @@
             <artifactId>common</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.packt.cookbook.libraries</groupId>
+            <artifactId>pcl.configurator</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>jakarta.ejb</groupId>
