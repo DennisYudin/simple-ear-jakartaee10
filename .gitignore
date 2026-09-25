@@ -14,7 +14,7 @@
 .project
 .classpath
 .svn
-/target
+target
 target/maven-archiver
 pom.xml.versionsBackup
 nb-configuration.xml
