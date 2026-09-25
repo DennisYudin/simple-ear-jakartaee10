@@ -45,7 +45,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- SOME IMPORTANT WILDFLY 34 LIBS-->
+            <!-- WILDFLY 34 LIBS -->
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
                 <artifactId>wildfly-ee-with-tools</artifactId>
@@ -59,6 +59,12 @@
                 <artifactId>log4j-api</artifactId>
                 <version>2.23.1</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logmanager</groupId>
+                <artifactId>log4j2-jboss-logmanager</artifactId>
+                <version>2.0.1.Final</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- LIBS THAT ARE NOT IN WILDFLY            -->
@@ -136,6 +142,7 @@
 
     <!-- Common dependencies for all children -->
     <dependencies>
+
         <!-- Test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -150,6 +157,11 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.logmanager</groupId>
+            <artifactId>log4j2-jboss-logmanager</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -172,6 +184,15 @@
                     <encoding>UTF-8</encoding>
                     <meminitial>256m</meminitial>
                     <maxmem>1024m</maxmem>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

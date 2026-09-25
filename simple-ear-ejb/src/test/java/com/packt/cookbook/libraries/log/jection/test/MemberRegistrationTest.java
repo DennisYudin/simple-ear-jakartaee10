@@ -16,61 +16,51 @@
  */
 package com.packt.cookbook.libraries.log.jection.test;
 
-//import static org.junit.Assert.assertNotNull;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.logging.Logger;
-
-import jakarta.inject.Inject;
-
-import com.packt.cookbook.ejb.data.MemberListProducer;
-import com.packt.cookbook.ejb.data.MemberRepository;
-import com.packt.cookbook.ejb.util.Resource;
-import org.jboss.arquillian.container.test.api.Deployment;
 import com.packt.cookbook.ejb.model.Member;
 import com.packt.cookbook.ejb.service.MemberRegistration;
-import org.jboss.arquillian.junit5.ArquillianExtension;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-@Disabled
-@ExtendWith(ArquillianExtension.class)
-public class MemberRegistrationTest {
+import jakarta.enterprise.event.Event;
+import jakarta.persistence.EntityManager;
 
-    @Deployment
-    public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(JavaArchive.class, "simple-ear-ejb-1.0-SNAPSHOT.jar")
-                .addClasses(
-                        Member.class,
-                        MemberRegistration.class, Resource.class, MemberRepository.class, MemberListProducer.class)
-                .addAsResource("META-INF/beans.xml", "META-INF/persistence.xml");
-                // Deploy our test datasource
-//                .
-//                .addAsWebInfResource("test-ds.xml", "test-ds.xml");
-    }
+class MemberRegistrationTest {
 
-    @Inject
-    MemberRegistration memberRegistration;
-    @Inject
-    Logger log;
+	@InjectMocks
+	MemberRegistration memberRegistration;
+	@Mock
+	EntityManager entityManager;
+	@Mock
+	Event<Member> memberEventSrc;
 
-    @Test
-    void testRegister() throws Exception {
-        Member newMember = new Member();
-        newMember.setName("Jane Doe");
-        newMember.setEmail("jane@mailinator.com");
-        newMember.setPhoneNumber("2125551234");
+	private AutoCloseable closeable;
 
-        memberRegistration.register(newMember);
+	@BeforeEach
+	public void openMocks() {
+		closeable = MockitoAnnotations.openMocks(this);
+	}
 
-        assertNotNull(newMember.getId());
-        log.info(newMember.getName() + " was persisted with id " + newMember.getId());
-    }
+	@AfterEach
+	public void releaseMocks() throws Exception {
+		closeable.close();
+	}
+
+	@Test
+	void testRegister() throws Exception {
+		Member newMember = new Member();
+		newMember.setName("Jane Doe");
+		newMember.setEmail("jane@mailinator.com");
+		newMember.setPhoneNumber("2125551234");
+
+		memberRegistration.register(newMember);
+
+		assertNotNull(newMember.getName());
+	}
 }

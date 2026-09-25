@@ -49,13 +49,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- we need it here to avoid compilation failure during mvn compile step        -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
         <dependency>
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>

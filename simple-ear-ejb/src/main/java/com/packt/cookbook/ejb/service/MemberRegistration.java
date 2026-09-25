@@ -30,9 +30,7 @@ import jakarta.persistence.EntityManager;
 @Stateless
 public class MemberRegistration implements Registration {
 
-//	private static final LogHelper log = Log4jHelper.getLogger(MemberRegistration.class);
-	@Inject
-	private LogHelper log;
+	private static final LogHelper log = Log4jHelper.getLogger(MemberRegistration.class);
 
 	@Inject
 	private EntityManager entityManager;
@@ -46,7 +44,13 @@ public class MemberRegistration implements Registration {
 
 	@Override
 	public void register(Member member) throws Exception {
+		log.trace("Registering " + member.getName());
+		log.debug("Registering " + member.getName());
 		log.info("Registering " + member.getName());
+		log.warn("Registering " + member.getName());
+		log.error("Registering " + member.getName());
+		log.fatal("Registering " + member.getName());
+
 		entityManager.persist(member);
 		memberEventSrc.fire(member);
 	}
