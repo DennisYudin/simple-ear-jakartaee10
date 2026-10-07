@@ -10,17 +10,12 @@
     <artifactId>log.injection</artifactId>
     <packaging>ejb</packaging>
 
-    <name>EJB-JAR module: logging injection test</name>
+    <name>EJB module: logging injection test</name>
 
     <dependencies>
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>
             <artifactId>common</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>pcl.configurator</artifactId>
             <scope>provided</scope>
         </dependency>
 

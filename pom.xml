@@ -67,7 +67,7 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- LIBS THAT ARE NOT IN WILDFLY            -->
+            <!-- LIBS THAT WILDFLY DOES NOT PROVIDE             -->
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
@@ -78,31 +78,6 @@
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.mobimoney.pcl</groupId>
-                <artifactId>pcl.configurator</artifactId>
-                <version>9.9-SNAPSHOT</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.mobimoney.pcl</groupId>
-                <artifactId>pcl.common</artifactId>
-                <version>9.9-SNAPSHOT</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.mobimoney.pcl</groupId>
-                <artifactId>pcl.common.producers</artifactId>
-                <version>9.9-SNAPSHOT</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.mobimoney.pcl</groupId>
-                <artifactId>pcl.securityservice.client</artifactId>
-                <version>9.9-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -142,7 +117,6 @@
 
     <!-- Common dependencies for all children -->
     <dependencies>
-
         <!-- Test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

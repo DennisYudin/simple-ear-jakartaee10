@@ -16,8 +16,6 @@
  */
 package com.packt.cookbook.web.rest;
 
-import com.mobimoney.pcl.configuration.Configurator;
-import com.mobimoney.pcl.configuration.ConfiguratorType;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -97,30 +95,11 @@ public class MemberRESTService {
 	@Inject
 	@Chosen(type = CoderType.SHIFT)
 	private Coder coder;
-	@Inject
-	@ConfiguratorType(type = ApplicationType.COMMON)
-	private Configurator configurator;
 
 	@PostConstruct
 	public void init() {
 		log.info("WEB module: logging is working...");
 	}
-
-//	@GET
-//	@Path("/getDatasource")
-//	public Response getDatasource() throws NamingException {
-//		DbMasterSlaveConfiguration cfg = configurator.getConfiguration(DbMasterSlaveConfiguration.class,
-//				new DbMasterSlaveConfiguration());
-//		DataSource mainDataSource;
-//		try {
-//			log.debug("Getting data source %s", cfg.getMainDbJndiName());
-//			mainDataSource = DatabaseHelper.createDataSource(cfg.getMainDbJndiName());
-//		} catch (Exception e) {
-//			log.error("Couldn't get main datasource for: " + cfg.getMainDbJndiName());
-//			throw new RuntimeException("Couldn't get main datasource for: " + cfg.getMainDbJndiName());
-//		}
-//		return Response.ok(mainDataSource).build();
-//	}
 
 	@GET
 	@Path("/ping/{input}")
