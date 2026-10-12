@@ -53,6 +53,17 @@
             <type>ejb</type>
         </dependency>
 
+        <dependency>
+            <groupId>com.mobimoney.pcl</groupId>
+            <artifactId>pcl.configurator</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mobimoney.pcl</groupId>
+            <artifactId>pcl.common</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!--    this dependency was added here for xStream lib test and test logging-->
         <dependency>
             <groupId>com.packt.cookbook.libraries</groupId>

@@ -19,16 +19,19 @@
    xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
     <persistence-unit name="primary">
-        <!-- If you are running in a production environment, add a managed 
-         data source, this example data source is just for development and testing! -->
-        <!-- The datasource is deployed as <EAR>/META-INF/simple-ear-ds.xml, you
-         can find it in the source at ear/src/main/application/META-INF/simple-ear-ds.xml -->
+        <!--
+        If you are running in a production environment, add a managed data source,
+        this example data source is just for development and testing!
+        The datasource is deployed as <EAR>/META-INF/simple-ear-ds.xml,
+        you can find it in the source at /src/main/application/META-INF/simple-ear-ds.xml
+        -->
         <jta-data-source>java:jboss/datasources/simple-earDS</jta-data-source>
         <properties>
             <!-- Properties for Hibernate -->
             <property name="hibernate.hbm2ddl.auto" value="create-drop" />
             <property name="hibernate.show_sql" value="false" />
         </properties>
+<!--        ENABLE_SELECTIVE, DISABLE_SELECTIVE, ALL-->
         <shared-cache-mode>NONE</shared-cache-mode>
     </persistence-unit>
 </persistence>

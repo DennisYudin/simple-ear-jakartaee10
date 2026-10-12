@@ -17,6 +17,10 @@
 package com.packt.cookbook.web.rest;
 
 
+import com.mobimoney.pcl.common.ApplicationType;
+import com.mobimoney.pcl.configuration.Configurator;
+import com.mobimoney.pcl.configuration.ConfiguratorType;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -46,7 +50,6 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 
-import com.packt.cookbook.libraries.common.ApplicationType;
 import com.packt.cookbook.libraries.common.DatabaseHelper;
 import com.packt.cookbook.libraries.common.configuration.DbMasterSlaveConfiguration;
 import com.packt.cookbook.libraries.common.html.MessageConverter;
@@ -79,10 +82,6 @@ import javax.sql.DataSource;
 @Path("members")
 @RequestScoped
 public class MemberRESTService {
-//	@Inject
-//	private Logger log;
-
-//	private static final LogHelper log = Log4jHelper.getLogger(MemberRESTService.class);
 	@Inject
 	private Validator validator;
 	@Inject
@@ -95,6 +94,10 @@ public class MemberRESTService {
 	@Inject
 	@Chosen(type = CoderType.SHIFT)
 	private Coder coder;
+
+	@Inject
+	@ConfiguratorType(type = ApplicationType.ARTICLE)
+	protected Configurator configurator;
 
 	@PostConstruct
 	public void init() {

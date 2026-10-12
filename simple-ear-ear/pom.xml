@@ -41,26 +41,6 @@
             <artifactId>methodproducer</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>pcl.configurator</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>pcl.securityservice.client</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>pcl.securityservice.protocol</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.packt.cookbook.libraries</groupId>
-            <artifactId>pcl.persistence.jdbc</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
         <!-- EJBs       -->
         <dependency>
@@ -99,8 +79,9 @@
                     <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
                     <modules>
                         <!--
-                        When init in order is true
-                        we need this module be before WAR module or we'll get ServiceNotFoundException                      -->
+                        When <initializeInOrder> is true
+                        we need this module be before WAR module or we'll get ServiceNotFoundException
+                        -->
                         <ejbModule>
                             <groupId>com.packt.cookbook</groupId>
                             <artifactId>simple-ear-ejb</artifactId>

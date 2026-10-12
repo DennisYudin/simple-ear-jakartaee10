@@ -19,10 +19,10 @@
     </modules>
 
     <properties>
-        <!-- Explicitly declaring the source encoding eliminates the following 
-            message: -->
-        <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
-            resources, i.e. build is platform dependent! -->
+        <!--
+        Explicitly declaring the source encoding eliminates the following message:
+        [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+        -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- JBoss dependency versions -->
@@ -78,6 +78,20 @@
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!--            -->
+            <dependency>
+                <groupId>com.mobimoney.pcl</groupId>
+                <artifactId>pcl.configurator</artifactId>
+                <version>9.30-SNAPSHOT</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.mobimoney.pcl</groupId>
+                <artifactId>pcl.common</artifactId>
+                <version>9.30-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>
 

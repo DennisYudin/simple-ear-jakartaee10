@@ -12,17 +12,17 @@ import jakarta.inject.Inject;
 @Singleton
 public class TestInject {
 
-	public static final String LOGGING_MESSAGE = "<= TEST %s LOGGING LEVEL";
+	public static final String LOGGING_MESSAGE = "TEST [%s] LOGGING LEVEL";
 
 	@Inject
 	private LogHelper log;
 
 	@PostConstruct
 	public void init() {
-		log.debug(LOGGING_MESSAGE, "'DEBUG'");
-		log.info(LOGGING_MESSAGE, "'INFO'");
-		log.warn(LOGGING_MESSAGE, "'WARN'");
-		log.error(LOGGING_MESSAGE, "'ERROR'");
-		log.fatal(LOGGING_MESSAGE, "'FATAL'");
+		log.debug(LOGGING_MESSAGE, "DEBUG");
+		log.info(LOGGING_MESSAGE, "INFO");
+		log.warn(LOGGING_MESSAGE, "WARN");
+		log.error(LOGGING_MESSAGE, "ERROR");
+		log.fatal(LOGGING_MESSAGE, "FATAL");
 	}
 }
