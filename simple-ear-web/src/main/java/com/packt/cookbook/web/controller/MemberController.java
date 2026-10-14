@@ -16,6 +16,8 @@
  */
 package com.packt.cookbook.web.controller;
 
+import com.mobimoney.pcl.common.SerializeHelper;
+
 import jakarta.enterprise.inject.Model;
 import jakarta.enterprise.inject.Produces;
 
@@ -43,8 +45,6 @@ public class MemberController {
 
 //    protected final Logger log = LogManager.getLogger(getClass());
     private static final LogHelper log = Log4jHelper.getLogger(MemberController.class);
-//    @Inject
-//    private LogHelper log;
 
     @Inject
     private FacesContext facesContext;
@@ -63,8 +63,10 @@ public class MemberController {
         try {
             memberRegistration.register(newMember);
 
+            String serializedForm = SerializeHelper.serialize(newMember);
+
             facesContext.addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered! serializedForm=" + serializedForm, "Registration successful"));
             initNewMember();
         } catch (Exception e) {
             String errorMessage = getRootErrorMessage(e);

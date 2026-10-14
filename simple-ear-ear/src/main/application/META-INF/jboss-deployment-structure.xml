@@ -18,10 +18,11 @@
     <deployment>
         <dependencies>
             <!-- access to external libs           -->
-            <module name="com.mobimoney.external" slot="main" export="true" meta-inf="export"/>
-            <module name="com.mobimoney.jdbc" slot="main" export="true" meta-inf="export"/>
-            <module name="com.mobimoney.pcl" slot="main" export="true" meta-inf="export"/>
+            <module name="com.mobimoney.external" slot="main" />
+            <module name="com.mobimoney.jdbc" slot="main" />
+            <module name="com.mobimoney.pcl" slot="main" export="true" meta-inf="import"/>
 
         </dependencies>
     </deployment>
 </jboss-deployment-structure>
+

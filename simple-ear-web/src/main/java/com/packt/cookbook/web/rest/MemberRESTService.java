@@ -21,18 +21,23 @@ import com.mobimoney.pcl.common.ApplicationType;
 import com.mobimoney.pcl.configuration.Configurator;
 import com.mobimoney.pcl.configuration.ConfiguratorType;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
+import com.packt.cookbook.ejb.data.MemberRepository;
+import com.packt.cookbook.ejb.model.Member;
+import com.packt.cookbook.ejb.service.Registration;
+import com.packt.cookbook.libraries.common.html.MessageConverter;
+import com.packt.cookbook.libraries.common.logging.LogHelper;
+import com.packt.cookbook.libraries.common.xml.Contract;
+import com.packt.cookbook.libraries.producermethods.entities.Chosen;
+import com.packt.cookbook.libraries.producermethods.entities.Coder;
+import com.packt.cookbook.libraries.producermethods.entities.CoderType;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.enterprise.inject.spi.Bean;
 import jakarta.inject.Inject;
 import jakarta.persistence.NoResultException;
 import jakarta.validation.ConstraintViolation;
@@ -49,30 +54,6 @@ import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-
-import com.packt.cookbook.libraries.common.DatabaseHelper;
-import com.packt.cookbook.libraries.common.configuration.DbMasterSlaveConfiguration;
-import com.packt.cookbook.libraries.common.html.MessageConverter;
-import com.packt.cookbook.libraries.common.logging.Log4jHelper;
-import com.packt.cookbook.libraries.common.logging.LogHelper;
-import com.packt.cookbook.libraries.common.xml.Contract;
-import com.packt.cookbook.ejb.data.MemberRepository;
-
-
-import com.packt.cookbook.ejb.model.Member;
-import com.packt.cookbook.ejb.service.Registration;
-//import com.packt.cookbook.libraries.producermethods.CoderBeanFactory;
-import com.packt.cookbook.libraries.producermethods.entities.Chosen;
-import com.packt.cookbook.libraries.producermethods.entities.Coder;
-import com.packt.cookbook.libraries.producermethods.entities.CoderImpl;
-import com.packt.cookbook.libraries.producermethods.entities.CoderType;
-
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
-
-//import org.apache.logging.log4j.Logger;
-//import org.apache.logging.log4j.Logger;
 
 /**
  * JAX-RS Example
